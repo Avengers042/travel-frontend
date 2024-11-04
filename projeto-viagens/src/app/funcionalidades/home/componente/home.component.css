@@ -1,0 +1,22 @@
+.titulo-home{
+    text-align: center;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.imagem-redonda{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.texto-informativo{
+    text-align: justify;
+    font-weight: bold;
+    margin-left: 300px;
+}
+
+.teste{
+    position: absolute;
+}
