@@ -1,0 +1,129 @@
+<form [formGroup]="formPreferenciasUsuario">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="bttn btnAdd" id="voltarHome" (click)="voltarHome()">Voltar para a home</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 titulo text-center">
+            PREFERÊNCIAS DO USUÁRIO
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-4 card">
+            <div class="question">
+                Tipos de pontos turísticos
+            </div>
+            <hr>
+            <div class="option">
+                <input type="checkbox" id="natureza" [value]="1" (change)="pontoTuristicoChange($event)">
+                <span class="font-weight-bold margin-left">Natureza</span>
+                <div>Parques, praias, montanhas</div>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="cultura" [value]="2" (change)="pontoTuristicoChange($event)">
+                <span class="font-weight-bold margin-left">Cultura e História</span>
+                <div>Museus, monumentos, sitios históricos</div>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="aventura" [value]="3" (change)="pontoTuristicoChange($event)">
+                <span class="font-weight-bold margin-left">Aventura</span>
+                <div>Esportes radicais, trilhas</div>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="vidaNoturna" [value]="4" (change)="pontoTuristicoChange($event)">
+                <span class="font-weight-bold margin-left">Vida noturna</span>
+                <div>Bares, clubes, festas</div>
+            </div>
+        </div>
+        <div class="col-md-4 card">
+            <div class="question">
+                Tipo de hospedagem
+            </div>
+            <hr>
+            <div class="option">
+                <input type="checkbox" id="hotel" value="5" (change)="hospedagemChange($event)">
+                <span class="font-weight-bold margin-left">Hotel</span>
+                <div>Conforto e serviços</div>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="airbnb" value="6" (change)="hospedagemChange($event)">
+                <span class="font-weight-bold margin-left">Airbnb</span>
+                <div>Aluguel de casas e apartamentos</div>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="hostel" value="7" (change)="hospedagemChange($event)">
+                <span class="font-weight-bold margin-left">Hostel</span>
+                <div>Acomodações econômicas</div>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="acampamento" value="8" (change)="hospedagemChange($event)">
+                <span class="font-weight-bold margin-left">Acampamento</span>
+                <div>Contato com a natureza</div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-4 card">
+            <div class="question">
+                Tipo de clima
+            </div>
+            <hr>
+            <div class="d-flex justify-content-center flex-wrap" role="group">
+                <div class="option">
+                    <input type="radio" class="btn-check" id="equatorial" (change)="climaChange($event)" value="9"
+                        name="clima">
+                    <label class="btn btn-outline-primary" for="equatorial">Equatorial</label>
+                </div>
+                <div class="option">
+                    <input type="radio" class="btn-check" id="tropical" (change)="climaChange($event)" value="10"
+                        name="clima">
+                    <label class="btn btn-outline-primary" for="tropical">Tropical</label>
+                </div>
+                <div class="option">
+                    <input type="radio" class="btn-check" id="subtropical" (change)="climaChange($event)" value="11"
+                        name="clima">
+                    <label class="btn btn-outline-primary" for="subtropical">Subtropical</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 card">
+            <div class="question">
+                Tipos de alimentação
+            </div>
+            <hr>
+            <div class="d-flex justify-content-center flex-wrap" role="group"
+                aria-label="Basic checkbox toggle button group">
+                <div class="option">
+                    <input type="checkbox" class="btn-check" id="massas" (change)="alimentacaoChange($event)"
+                        value="12">
+                    <label class="btn btn-outline-primary" for="massas">Massas</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" class="btn-check" id="hamburguer" (change)="alimentacaoChange($event)"
+                        value="13">
+                    <label class="btn btn-outline-primary" for="hamburguer">Hambúrguer</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" class="btn-check" id="sushi" (change)="alimentacaoChange($event)" value="14">
+                    <label class="btn btn-outline-primary" for="sushi">Sushi</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" class="btn-check" id="churrasco" (change)="alimentacaoChange($event)"
+                        value="15">
+                    <label class="btn btn-outline-primary" for="churrasco">Churrasco</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" class="btn-check" id="sobremesas" (change)="alimentacaoChange($event)"
+                        value="14">
+                    <label class="btn btn-outline-primary" for="sobremesas">Sobremesas</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center text-center mt-4 mb-3">
+        <button class="bttn btnAdd" id="enviarPreferencias" (click)="enviarPreferencias(formPreferenciasUsuario)">Enviar
+            preferências</button>
+    </div>
+</form>
