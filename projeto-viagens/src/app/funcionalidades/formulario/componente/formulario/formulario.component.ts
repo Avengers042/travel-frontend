@@ -73,6 +73,8 @@ export class FormularioComponent {
 			JSON.stringify(userPreferences),
 		);
 		console.log(userPreferences);
+
+		this.router.navigateByUrl("/resultado");
 	}
 
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>

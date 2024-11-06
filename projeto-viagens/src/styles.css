@@ -88,3 +88,15 @@ body {
 .font-weight-bold{
     font-weight: bold;
 }
+
+.titulo-modal{
+    font-size: 25px;
+    font-weight: bold;
+    font-family: "Anton", sans-serif;
+    text-align: center;
+}
+
+.icone-alerta{
+    width: 150px;
+    height: 150px;
+}

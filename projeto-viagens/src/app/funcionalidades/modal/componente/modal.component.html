@@ -1,0 +1,22 @@
+<div class="fundo-opaco">
+    <div class="card" *ngIf="isVisible">
+        <div class="row">
+            <div class="col-md-12 titulo-modal">
+                Tem certeza que deseja limpar suas preferências?
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <img src="/assets/imagens/icone-alerta.png" class="icone-alerta">
+            </div>
+        </div>
+        <div class="row justify-content-between mt-5">
+            <button class="bttn btnAdd" id="closeModal" (click)="closeModal()">
+                Não
+            </button>
+            <button class="bttn btnClear" id="limpar" (click)="limparPreferencias()">Limpar
+                preferências
+            </button>
+        </div>
+    </div>
+</div>

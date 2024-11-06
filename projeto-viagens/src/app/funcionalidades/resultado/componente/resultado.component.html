@@ -53,3 +53,7 @@
         </button>
     </div>
 </div>
+
+<div *ngIf="openModal">
+    <app-modal (modalClosed)="closeModal($event)"></app-modal>
+</div>
