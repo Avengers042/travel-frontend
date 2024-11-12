@@ -4,6 +4,7 @@ import { CommonModule } from "@angular/common";
 import { FormularioRoutingModule } from "./formulario-routing.module";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
 	declarations: [],
@@ -12,6 +13,7 @@ import { BrowserModule } from "@angular/platform-browser";
 		FormularioRoutingModule,
 		FormsModule,
 		BrowserModule,
+		HttpClientModule,
 	],
 })
 export class FormularioModule {}

@@ -9,11 +9,14 @@ import {
 import { DadosFormulario } from "../../model/formulario.model";
 // biome-ignore lint/style/useImportType: <explanation>
 import { Router, RouterOutlet } from "@angular/router";
+import { ServiceService } from "../../../service.service";
+import { HttpClientModule } from "@angular/common/http";
 
 @Component({
 	selector: "app-formulario",
 	standalone: true,
-	imports: [FormsModule, ReactiveFormsModule, RouterOutlet],
+	imports: [FormsModule, ReactiveFormsModule, RouterOutlet, HttpClientModule],
+	providers: [ServiceService],
 	templateUrl: "./formulario.component.html",
 	styleUrls: ["./formulario.component.css"],
 })
@@ -51,6 +54,7 @@ export class FormularioComponent {
 	constructor(
 		private fb: FormBuilder,
 		private router: Router,
+		private service: ServiceService,
 	) {
 		this.formPreferenciasUsuario = this.fb.group({
 			pontoTuristico: [this.dadosFormulario.pontosTuristicos],
@@ -68,13 +72,19 @@ export class FormularioComponent {
 			alimentacao: this.dadosFormulario.alimentacao,
 		};
 
-		window.localStorage.setItem(
-			"userPreferences",
-			JSON.stringify(userPreferences),
-		);
+		this.service
+			.enviarDadosFormulario(userPreferences)
+			.subscribe((dados) => {
+				if (dados) {
+					console.log(dados);
+					this.router.navigateByUrl("/resultado");
+				}
+			});
+		// window.localStorage.setItem(
+		// 	"userPreferences",
+		// 	JSON.stringify(userPreferences),
+		// );
 		console.log(userPreferences);
-
-		this.router.navigateByUrl("/resultado");
 	}
 
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>

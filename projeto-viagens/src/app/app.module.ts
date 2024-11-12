@@ -7,6 +7,7 @@ import { ResultadoComponent } from "./funcionalidades/resultado/componente/resul
 import { FormularioComponent } from "./funcionalidades/formulario/componente/formulario/formulario.component";
 import { ModalComponent } from "./funcionalidades/modal/componente/modal.component";
 import { HomeComponent } from "./funcionalidades/home/componente/home.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
 	declarations: [
@@ -15,6 +16,7 @@ import { HomeComponent } from "./funcionalidades/home/componente/home.component"
 		FormularioComponent,
 		ModalComponent,
 		HomeComponent,
+		HttpClientModule,
 	],
 	imports: [BrowserModule, RouterModule.forRoot(routes)],
 	providers: [],
