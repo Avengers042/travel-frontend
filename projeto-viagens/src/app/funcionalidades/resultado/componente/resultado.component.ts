@@ -12,7 +12,6 @@ import { ResultadoViagem } from "../../formulario/model/formulario.model";
 	selector: "app-resultado",
 	standalone: true,
 	imports: [RouterOutlet, ModalComponent, CommonModule, HttpClientModule],
-	providers: [ServiceService],
 	templateUrl: "./resultado.component.html",
 	styleUrl: "./resultado.component.css",
 })
@@ -31,7 +30,6 @@ export class ResultadoComponent implements OnInit {
 		this.service.getRespostasObtidas().subscribe((dados) => {
 			if (dados) {
 				this.respostasObtidas = dados;
-				console.log(dados);
 			}
 		});
 	}

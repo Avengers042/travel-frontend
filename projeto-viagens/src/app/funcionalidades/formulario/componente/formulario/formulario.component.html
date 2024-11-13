@@ -16,22 +16,26 @@
             </div>
             <hr>
             <div class="option">
-                <input type="checkbox" id="natureza" [value]="1" (change)="pontoTuristicoChange($event)">
+                <input type="radio" id="natureza" name="pontoTuristico" [value]="1"
+                    (change)="pontoTuristicoChange($event)">
                 <span class="font-weight-bold margin-left">Natureza</span>
                 <div>Parques, praias, montanhas</div>
             </div>
             <div class="option">
-                <input type="checkbox" id="cultura" [value]="2" (change)="pontoTuristicoChange($event)">
+                <input type="radio" id="cultura" name="pontoTuristico" [value]="2"
+                    (change)="pontoTuristicoChange($event)">
                 <span class="font-weight-bold margin-left">Cultura e História</span>
                 <div>Museus, monumentos, sitios históricos</div>
             </div>
             <div class="option">
-                <input type="checkbox" id="aventura" [value]="3" (change)="pontoTuristicoChange($event)">
+                <input type="radio" id="aventura" name="pontoTuristico" [value]="3"
+                    (change)="pontoTuristicoChange($event)">
                 <span class="font-weight-bold margin-left">Aventura</span>
                 <div>Esportes radicais, trilhas</div>
             </div>
             <div class="option">
-                <input type="checkbox" id="vidaNoturna" [value]="4" (change)="pontoTuristicoChange($event)">
+                <input type="radio" id="vidaNoturna" name="pontoTuristico" [value]="4"
+                    (change)="pontoTuristicoChange($event)">
                 <span class="font-weight-bold margin-left">Vida noturna</span>
                 <div>Bares, clubes, festas</div>
             </div>
@@ -42,22 +46,22 @@
             </div>
             <hr>
             <div class="option">
-                <input type="checkbox" id="hotel" value="5" (change)="hospedagemChange($event)">
+                <input type="radio" id="hotel" name="hospedagem" value="5" (change)="hospedagemChange($event)">
                 <span class="font-weight-bold margin-left">Hotel</span>
                 <div>Conforto e serviços</div>
             </div>
             <div class="option">
-                <input type="checkbox" id="airbnb" value="6" (change)="hospedagemChange($event)">
+                <input type="radio" id="airbnb" name="hospedagem" value="6" (change)="hospedagemChange($event)">
                 <span class="font-weight-bold margin-left">Airbnb</span>
                 <div>Aluguel de casas e apartamentos</div>
             </div>
             <div class="option">
-                <input type="checkbox" id="hostel" value="7" (change)="hospedagemChange($event)">
+                <input type="radio" id="hostel" name="hospedagem" value="7" (change)="hospedagemChange($event)">
                 <span class="font-weight-bold margin-left">Hostel</span>
                 <div>Acomodações econômicas</div>
             </div>
             <div class="option">
-                <input type="checkbox" id="acampamento" value="8" (change)="hospedagemChange($event)">
+                <input type="radio" id="acampamento" name="hospedagem" value="8" (change)="hospedagemChange($event)">
                 <span class="font-weight-bold margin-left">Acampamento</span>
                 <div>Contato com a natureza</div>
             </div>
@@ -93,29 +97,30 @@
             </div>
             <hr>
             <div class="d-flex justify-content-center flex-wrap" role="group"
-                aria-label="Basic checkbox toggle button group">
+                aria-label="Basic radio button toggle group">
                 <div class="option">
-                    <input type="checkbox" class="btn-check" id="massas" (change)="alimentacaoChange($event)"
-                        value="12">
+                    <input type="radio" class="btn-check" id="massas" (change)="alimentacaoChange($event)" value="12"
+                        name="alimentacao">
                     <label class="btn btn-outline-primary" for="massas">Massas</label>
                 </div>
                 <div class="option">
-                    <input type="checkbox" class="btn-check" id="hamburguer" (change)="alimentacaoChange($event)"
-                        value="13">
+                    <input type="radio" class="btn-check" id="hamburguer" (change)="alimentacaoChange($event)"
+                        value="13" name="alimentacao">
                     <label class="btn btn-outline-primary" for="hamburguer">Hambúrguer</label>
                 </div>
                 <div class="option">
-                    <input type="checkbox" class="btn-check" id="sushi" (change)="alimentacaoChange($event)" value="14">
+                    <input type="radio" class="btn-check" id="sushi" (change)="alimentacaoChange($event)" value="14"
+                        name="alimentacao">
                     <label class="btn btn-outline-primary" for="sushi">Sushi</label>
                 </div>
                 <div class="option">
-                    <input type="checkbox" class="btn-check" id="churrasco" (change)="alimentacaoChange($event)"
-                        value="15">
+                    <input type="radio" class="btn-check" id="churrasco" (change)="alimentacaoChange($event)" value="15"
+                        name="alimentacao">
                     <label class="btn btn-outline-primary" for="churrasco">Churrasco</label>
                 </div>
                 <div class="option">
-                    <input type="checkbox" class="btn-check" id="sobremesas" (change)="alimentacaoChange($event)"
-                        value="14">
+                    <input type="radio" class="btn-check" id="sobremesas" (change)="alimentacaoChange($event)"
+                        value="16" name="alimentacao">
                     <label class="btn btn-outline-primary" for="sobremesas">Sobremesas</label>
                 </div>
             </div>

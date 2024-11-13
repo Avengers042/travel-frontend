@@ -16,7 +16,6 @@ import { HttpClientModule } from "@angular/common/http";
 	selector: "app-formulario",
 	standalone: true,
 	imports: [FormsModule, ReactiveFormsModule, RouterOutlet, HttpClientModule],
-	providers: [ServiceService],
 	templateUrl: "./formulario.component.html",
 	styleUrls: ["./formulario.component.css"],
 })
@@ -26,28 +25,24 @@ export class FormularioComponent {
 
 	opcoesPreferencias = {
 		pontoTuristico: [
-			{ codigo: 1, descricao: "Natureza" },
-			{ codigo: 2, descricao: "Cultura e Historia" },
-			{ codigo: 3, descricao: "Aventura" },
-			{ codigo: 4, descricao: "Vida noturna" },
+			{ codigo: 1 },
+			{ codigo: 2 },
+			{ codigo: 3 },
+			{ codigo: 4 },
 		],
 		hospedagem: [
-			{ codigo: 5, descricao: "Hotel" },
-			{ codigo: 6, descricao: "Airbnb" },
-			{ codigo: 7, descricao: "Hostel" },
-			{ codigo: 8, descricao: "Acampamento" },
+			{ codigo: 5 },
+			{ codigo: 6 },
+			{ codigo: 7 },
+			{ codigo: 8 },
 		],
-		clima: [
-			{ codigo: 9, descricao: "Equatorial" },
-			{ codigo: 10, descricao: "Tropical" },
-			{ codigo: 11, descricao: "Subtropical" },
-		],
+		clima: [{ codigo: 9 }, { codigo: 10 }, { codigo: 11 }],
 		alimentacao: [
-			{ codigo: 12, descricao: "Massas" },
-			{ codigo: 13, descricao: "Hamburguer" },
-			{ codigo: 14, descricao: "Sushi" },
-			{ codigo: 15, descricao: "Churrasco" },
-			{ codigo: 16, descricao: "Sobremesas" },
+			{ codigo: 12 },
+			{ codigo: 13 },
+			{ codigo: 14 },
+			{ codigo: 15 },
+			{ codigo: 16 },
 		],
 	};
 
@@ -57,34 +52,33 @@ export class FormularioComponent {
 		private service: ServiceService,
 	) {
 		this.formPreferenciasUsuario = this.fb.group({
-			pontoTuristico: [this.dadosFormulario.pontosTuristicos],
-			hospedagem: [this.dadosFormulario.hospedagem],
-			clima: [this.dadosFormulario.clima],
-			alimentacao: [this.dadosFormulario.alimentacao],
+			pontoTuristico: this.dadosFormulario.pontoTuristico,
+			hospedagem: this.dadosFormulario.hospedagem,
+			clima: this.dadosFormulario.clima,
+			alimentacao: this.dadosFormulario.alimentacao,
 		});
 	}
 
 	enviarPreferencias(form: FormGroup) {
 		const userPreferences = {
-			pontosTuristicos: this.dadosFormulario.pontosTuristicos,
+			pontoTuristico: this.dadosFormulario.pontoTuristico,
 			hospedagem: this.dadosFormulario.hospedagem,
 			clima: this.dadosFormulario.clima,
 			alimentacao: this.dadosFormulario.alimentacao,
 		};
 
+		console.log(`User Preferences: ${JSON.stringify(userPreferences)}`);
+		console.log(
+			`Dados Formulario: ${JSON.stringify(this.dadosFormulario)}`,
+		);
+
 		this.service
 			.enviarDadosFormulario(userPreferences)
 			.subscribe((dados) => {
 				if (dados) {
-					console.log(dados);
 					this.router.navigateByUrl("/resultado");
 				}
 			});
-		// window.localStorage.setItem(
-		// 	"userPreferences",
-		// 	JSON.stringify(userPreferences),
-		// );
-		console.log(userPreferences);
 	}
 
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
@@ -96,17 +90,12 @@ export class FormularioComponent {
 
 		if (event.target.checked) {
 			if (selectedPoint) {
-				this.dadosFormulario.pontosTuristicos.push(selectedPoint);
+				this.dadosFormulario.pontoTuristico = selectedPoint.codigo;
 			}
-		} else {
-			this.dadosFormulario.pontosTuristicos =
-				this.dadosFormulario.pontosTuristicos.filter(
-					(item) => item.codigo !== selectedCode,
-				);
 		}
 
 		this.formPreferenciasUsuario.patchValue({
-			pontosTuristicos: this.dadosFormulario.pontosTuristicos,
+			pontoTuristico: this.dadosFormulario.pontoTuristico,
 		});
 	}
 
@@ -119,13 +108,8 @@ export class FormularioComponent {
 
 		if (event.target.checked) {
 			if (selectedAccommodation) {
-				this.dadosFormulario.hospedagem.push(selectedAccommodation);
+				this.dadosFormulario.hospedagem = selectedAccommodation.codigo;
 			}
-		} else {
-			this.dadosFormulario.hospedagem =
-				this.dadosFormulario.hospedagem.filter(
-					(item) => item.codigo !== selectedCode,
-				);
 		}
 
 		this.formPreferenciasUsuario.patchValue({
@@ -142,13 +126,8 @@ export class FormularioComponent {
 
 		if (event.target.checked) {
 			if (selectedAccommodation) {
-				this.dadosFormulario.alimentacao.push(selectedAccommodation);
+				this.dadosFormulario.alimentacao = selectedAccommodation.codigo;
 			}
-		} else {
-			this.dadosFormulario.alimentacao =
-				this.dadosFormulario.alimentacao.filter(
-					(item) => item.codigo !== selectedCode,
-				);
 		}
 
 		this.formPreferenciasUsuario.patchValue({
@@ -163,8 +142,9 @@ export class FormularioComponent {
 			(clima) => clima.codigo === selectedCode,
 		);
 		if (selectedClimate) {
-			this.dadosFormulario.clima = selectedClimate;
+			this.dadosFormulario.clima = selectedClimate.codigo;
 		}
+
 		this.formPreferenciasUsuario.patchValue({
 			clima: this.dadosFormulario.clima,
 		});
